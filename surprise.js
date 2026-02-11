@@ -1,21 +1,21 @@
 const surpriseMessages = [
-    "You're absolutely amazing! 💖",
-    "You light up every room you enter! ✨",
-    "You're one in a million! 🌟",
-    "Your smile is contagious! 😊",
-    "You make the world better! 🌍",
-    "You're incredibly special! 💝"
+    "Nikki, you're absolutely amazing! 💖",
+    "Nikki, you light up every room you enter! ✨",
+    "Nikki, you're one in a million! 🌟",
+    "Your smile is contagious, Nikki! 😊",
+    "Nikki, you make the world better! 🌍",
+    "You're incredibly special, Nikki! 💝"
 ];
 
 const compliments = [
-    "You're beautiful inside and out! 🌸",
-    "Your kindness knows no bounds! 💕",
-    "You're stronger than you know! 💪",
-    "Your presence is a gift! 🎁",
-    "You're absolutely radiant! ✨",
-    "You inspire everyone around you! 🌟",
-    "Your heart is pure gold! 💛",
-    "You're a true gem! 💎"
+    "Nikki, you're beautiful inside and out! 🌸",
+    "Your kindness knows no bounds, Nikki! 💕",
+    "You're stronger than you know, Nikki! 💪",
+    "Nikki, your presence is a gift! 🎁",
+    "You're absolutely radiant, Nikki! ✨",
+    "Nikki, you inspire everyone around you! 🌟",
+    "Your heart is pure gold, Nikki! 💛",
+    "Nikki, you're a true gem! 💎"
 ];
 
 const moodResponses = {
