@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+h1 {
+    text-align: center;
+    color: #667eea;
+    margin-bottom: 30px;
+}
+
+.gift-section, .flower-section, .mood-section {
+    margin: 30px 0;
+    text-align: center;
+}
+
+.gift {
+    font-size: 80px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    display: inline-block;
+}
+
+.gift:hover {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.gift-message {
+    margin-top: 15px;
+    font-size: 18px;
+    color: #764ba2;
+    font-weight: bold;
+    min-height: 25px;
+}
+
+.flowers {
+    font-size: 60px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    display: inline-block;
+}
+
+.flowers:hover {
+    transform: scale(1.1);
+}
+
+.compliment {
+    margin-top: 15px;
+    font-size: 18px;
+    color: #e91e63;
+    font-style: italic;
+    min-height: 25px;
+}
+
+.mood-section h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.mood-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.mood-btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+.mood-btn.happy {
+    background: #4caf50;
+    color: white;
+}
+
+.mood-btn.low {
+    background: #2196f3;
+    color: white;
+}
+
+.mood-btn.angry {
+    background: #ff5722;
+    color: white;
+}
+
+.mood-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.mood-message {
+    font-size: 18px;
+    color: #333;
+    padding: 20px;
+    background: #f0f0f0;
+    border-radius: 10px;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.last-mood {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #666;
+    font-style: italic;
+}

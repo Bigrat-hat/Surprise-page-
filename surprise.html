@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise Page 🎁</title>
+    <link rel="stylesheet" href="surprise.css">
+</head>
+<body>
+    <div class="container">
+        <h1>✨ Interactive Surprises ✨</h1>
+        
+        <div class="gift-section">
+            <div class="gift" id="gift">🎁</div>
+            <p class="gift-message" id="giftMessage"></p>
+        </div>
+
+        <div class="flower-section">
+            <div class="flowers" id="flowers">🌸🌺🌼🌻🌷</div>
+            <p class="compliment" id="compliment"></p>
+        </div>
+
+        <div class="mood-section">
+            <h2>How are you feeling today?</h2>
+            <div class="mood-buttons">
+                <button class="mood-btn happy" data-mood="happy">😊 Feeling Happy</button>
+                <button class="mood-btn low" data-mood="low">😔 Feeling Low</button>
+                <button class="mood-btn angry" data-mood="angry">😠 Feeling Angry</button>
+            </div>
+            <p class="mood-message" id="moodMessage"></p>
+            <p class="last-mood" id="lastMood"></p>
+        </div>
+    </div>
+
+    <script src="surprise.js"></script>
+</body>
+</html>
