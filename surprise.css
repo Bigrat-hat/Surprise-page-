@@ -133,3 +133,194 @@ h1 {
     color: #666;
     font-style: italic;
 }
+
+.letter-section {
+    margin: 30px 0;
+    text-align: center;
+}
+
+.letter-btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.letter-btn:hover {
+    transform: scale(1.05);
+}
+
+.letter-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s;
+    background: #fff3f8;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+.letter-content.show {
+    max-height: 500px;
+    padding: 20px;
+}
+
+.letter-content h3 {
+    color: #f5576c;
+    margin-bottom: 15px;
+}
+
+.letter-content p {
+    line-height: 1.8;
+    color: #333;
+}
+
+.signature {
+    text-align: right;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+.memory-section {
+    margin: 30px 0;
+}
+
+.memory-section h2 {
+    text-align: center;
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.memory-btn {
+    display: block;
+    margin: 0 auto 20px;
+    padding: 10px 25px;
+    background: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.memory-btn:hover {
+    background: #45a049;
+}
+
+.memories {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.memory-card {
+    background: #f0f0f0;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideIn 0.3s;
+}
+
+.memory-card p {
+    margin: 0;
+    flex: 1;
+}
+
+.memory-card button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.quote-section {
+    margin: 30px 0;
+    text-align: center;
+}
+
+.quote-btn {
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.quote-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.quote {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #764ba2;
+    font-style: italic;
+    min-height: 30px;
+    transition: opacity 0.3s;
+}
+
+.countdown-section {
+    margin: 30px 0;
+    text-align: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+}
+
+.countdown-section h2 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.countdown {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.floating-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.heart {
+    position: absolute;
+    bottom: -50px;
+    font-size: 30px;
+    animation: float-up linear;
+    opacity: 0.7;
+}
+
+@keyframes float-up {
+    to {
+        bottom: 110%;
+        opacity: 0;
+    }
+}

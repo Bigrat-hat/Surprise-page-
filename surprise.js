@@ -85,3 +85,88 @@ function displayLastMood() {
 }
 
 displayLastMood();
+
+// Love Letter
+const letterBtn = document.getElementById('letterBtn');
+const letterContent = document.getElementById('letterContent');
+letterBtn.addEventListener('click', () => {
+    letterContent.classList.toggle('show');
+    letterBtn.textContent = letterContent.classList.contains('show') ? '💌 Close Letter' : '💌 Open Love Letter';
+});
+
+// Inspirational Quotes
+const quotes = [
+    "Nikki, you are braver than you believe, stronger than you seem! 💪",
+    "The world is better because Nikki is in it! 🌍",
+    "Nikki's kindness creates ripples of joy everywhere! 🌊",
+    "Every day is brighter with Nikki around! ☀️",
+    "Nikki, you are a masterpiece! 🎨"
+];
+
+const quoteBtn = document.getElementById('quoteBtn');
+const quoteEl = document.getElementById('quote');
+quoteBtn.addEventListener('click', () => {
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    quoteEl.textContent = randomQuote;
+    quoteEl.style.opacity = '0';
+    setTimeout(() => quoteEl.style.opacity = '1', 100);
+});
+
+// Memory Wall
+const addMemoryBtn = document.getElementById('addMemory');
+const memoriesList = document.getElementById('memoriesList');
+
+function loadMemories() {
+    const memories = JSON.parse(localStorage.getItem('memories') || '[]');
+    memoriesList.innerHTML = '';
+    memories.forEach((memory, index) => {
+        const memoryCard = document.createElement('div');
+        memoryCard.className = 'memory-card';
+        memoryCard.innerHTML = `
+            <p>${memory}</p>
+            <button onclick="deleteMemory(${index})">🗑️</button>
+        `;
+        memoriesList.appendChild(memoryCard);
+    });
+}
+
+addMemoryBtn.addEventListener('click', () => {
+    const memory = prompt('Add a special memory with Nikki:');
+    if (memory) {
+        const memories = JSON.parse(localStorage.getItem('memories') || '[]');
+        memories.push(memory);
+        localStorage.setItem('memories', JSON.stringify(memories));
+        loadMemories();
+    }
+});
+
+window.deleteMemory = (index) => {
+    const memories = JSON.parse(localStorage.getItem('memories') || '[]');
+    memories.splice(index, 1);
+    localStorage.setItem('memories', JSON.stringify(memories));
+    loadMemories();
+};
+
+loadMemories();
+
+// Countdown Timer
+const startDate = new Date('2025-01-01');
+function updateCountdown() {
+    const now = new Date();
+    const diff = Math.floor((now - startDate) / (1000 * 60 * 60 * 24));
+    document.getElementById('countdown').textContent = `${diff} amazing days! 🎉`;
+}
+updateCountdown();
+
+// Floating Hearts Animation
+function createHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.textContent = '💖';
+    heart.style.left = Math.random() * 100 + '%';
+    heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+    document.getElementById('floatingHearts').appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+}
+
+setInterval(createHeart, 3000);
