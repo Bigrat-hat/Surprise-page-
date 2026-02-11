@@ -7,6 +7,17 @@
     <link rel="stylesheet" href="surprise.css">
 </head>
 <body>
+    <div id="passwordScreen" style="display: flex; align-items: center; justify-content: center; height: 100vh; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+        <div style="background: white; padding: 40px; border-radius: 20px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+            <h2 style="color: #667eea; margin-bottom: 20px;">🔒 Enter Password</h2>
+            <input type="password" id="passwordInput" placeholder="Password" style="padding: 15px; font-size: 16px; border: 2px solid #667eea; border-radius: 10px; width: 250px; margin-bottom: 15px;">
+            <br>
+            <button onclick="checkPassword()" style="padding: 15px 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 10px; font-size: 16px; cursor: pointer; font-weight: bold;">Enter</button>
+            <p id="errorMsg" style="color: red; margin-top: 10px; min-height: 20px;"></p>
+        </div>
+    </div>
+
+    <div id="mainContent" style="display: none;">
     <div class="container">
         <h1>✨ Hey Nikki! ✨</h1>
         
@@ -68,6 +79,8 @@
     </div>
 
     <div class="floating-hearts" id="floatingHearts"></div>
+
+    </div>
 
     <script src="surprise.js"></script>
 </body>

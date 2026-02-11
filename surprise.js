@@ -1,3 +1,26 @@
+// Password Protection
+const correctPassword = "nikki2025";
+
+function checkPassword() {
+    const input = document.getElementById('passwordInput').value;
+    if (input === correctPassword) {
+        localStorage.setItem('authenticated', 'true');
+        document.getElementById('passwordScreen').style.display = 'none';
+        document.getElementById('mainContent').style.display = 'block';
+    } else {
+        document.getElementById('errorMsg').textContent = 'Incorrect password!';
+    }
+}
+
+if (localStorage.getItem('authenticated') === 'true') {
+    document.getElementById('passwordScreen').style.display = 'none';
+    document.getElementById('mainContent').style.display = 'block';
+}
+
+document.getElementById('passwordInput')?.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') checkPassword();
+});
+
 const surpriseMessages = [
     "Nikki, you're absolutely amazing! 💖",
     "Nikki, you light up every room you enter! ✨",
@@ -172,34 +195,26 @@ function createHeart() {
 setInterval(createHeart, 3000);
 
 // Photo Gallery
-const preloadedPhotos = [
-    'images/nikki1.jpg',
-    'images/nikki2.jpg',
-    'images/nikki3.jpg'
-];
-
 const uploadBtn = document.getElementById('uploadBtn');
 const fileInput = document.getElementById('fileInput');
 const gallery = document.getElementById('gallery');
 
 function loadGallery() {
-    const uploadedPhotos = JSON.parse(localStorage.getItem('photos') || '[]');
-    const allPhotos = [...preloadedPhotos, ...uploadedPhotos];
+    const photos = JSON.parse(localStorage.getItem('photos') || '[]');
     gallery.innerHTML = '';
     
-    allPhotos.forEach((photo, index) => {
+    photos.forEach((photo, index) => {
         const img = document.createElement('img');
         img.src = photo;
         img.className = 'gallery-img';
         img.onclick = () => {
             const modal = document.createElement('div');
             modal.className = 'modal';
-            const isPreloaded = index < preloadedPhotos.length;
             modal.innerHTML = `
                 <div class="modal-content">
                     <span class="close" onclick="this.parentElement.parentElement.remove()">&times;</span>
                     <img src="${photo}" style="max-width: 90%; max-height: 90vh;">
-                    ${!isPreloaded ? `<button onclick="deletePhoto(${index - preloadedPhotos.length}); this.parentElement.parentElement.remove();">Delete</button>` : ''}
+                    <button onclick="deletePhoto(${index}); this.parentElement.parentElement.remove();">Delete</button>
                 </div>
             `;
             document.body.appendChild(modal);
