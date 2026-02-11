@@ -86,12 +86,12 @@ function displayLastMood() {
 
 displayLastMood();
 
-// Love Letter
+// Fun Facts
 const letterBtn = document.getElementById('letterBtn');
 const letterContent = document.getElementById('letterContent');
 letterBtn.addEventListener('click', () => {
     letterContent.classList.toggle('show');
-    letterBtn.textContent = letterContent.classList.contains('show') ? '💌 Close Letter' : '💌 Open Love Letter';
+    letterBtn.textContent = letterContent.classList.contains('show') ? '🌟 Close Facts' : '🌟 Fun Facts About Nikki';
 });
 
 // Inspirational Quotes
@@ -170,3 +170,65 @@ function createHeart() {
 }
 
 setInterval(createHeart, 3000);
+
+// Photo Gallery
+const preloadedPhotos = [
+    'images/nikki1.jpg',
+    'images/nikki2.jpg',
+    'images/nikki3.jpg'
+];
+
+const uploadBtn = document.getElementById('uploadBtn');
+const fileInput = document.getElementById('fileInput');
+const gallery = document.getElementById('gallery');
+
+function loadGallery() {
+    const uploadedPhotos = JSON.parse(localStorage.getItem('photos') || '[]');
+    const allPhotos = [...preloadedPhotos, ...uploadedPhotos];
+    gallery.innerHTML = '';
+    
+    allPhotos.forEach((photo, index) => {
+        const img = document.createElement('img');
+        img.src = photo;
+        img.className = 'gallery-img';
+        img.onclick = () => {
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            const isPreloaded = index < preloadedPhotos.length;
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <span class="close" onclick="this.parentElement.parentElement.remove()">&times;</span>
+                    <img src="${photo}" style="max-width: 90%; max-height: 90vh;">
+                    ${!isPreloaded ? `<button onclick="deletePhoto(${index - preloadedPhotos.length}); this.parentElement.parentElement.remove();">Delete</button>` : ''}
+                </div>
+            `;
+            document.body.appendChild(modal);
+        };
+        gallery.appendChild(img);
+    });
+}
+
+uploadBtn.addEventListener('click', () => fileInput.click());
+
+fileInput.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            const photos = JSON.parse(localStorage.getItem('photos') || '[]');
+            photos.push(event.target.result);
+            localStorage.setItem('photos', JSON.stringify(photos));
+            loadGallery();
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+window.deletePhoto = (index) => {
+    const photos = JSON.parse(localStorage.getItem('photos') || '[]');
+    photos.splice(index, 1);
+    localStorage.setItem('photos', JSON.stringify(photos));
+    loadGallery();
+};
+
+loadGallery();
