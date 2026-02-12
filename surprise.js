@@ -1,5 +1,5 @@
 // Password Protection
-const correctPassword = "nikki2025";
+const correctPassword = "nikki";
 
 function checkPassword() {
     const input = document.getElementById('passwordInput').value;
